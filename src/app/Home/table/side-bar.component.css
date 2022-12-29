@@ -2,7 +2,7 @@
 
 table{
     margin-top: 17px;
-    width: 60%;
+    width: 80%;
     font-size: 11.4px;
     
     margin-left: auto;
@@ -17,15 +17,16 @@ table{
     }
 }
 table td {
-    word-break: break-all;
+    width: 60%;
+    font-size: 10.4px;
   }
 
   /*achicar los th*/
 
 
     table th {
-        width: 10%;
-        font-size: 8.4px;
+        width: 60%;
+        font-size: 8px;
     }
 
 /*centrar el btn*/
