@@ -8,6 +8,7 @@ import { HomePageModule } from './Home/homepage.module';
 import { LoginComponent } from './Login/login/login.component';
 import { SideBarComponent } from './Home/table/side-bar.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -22,7 +23,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     HomePageModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
 
     
     

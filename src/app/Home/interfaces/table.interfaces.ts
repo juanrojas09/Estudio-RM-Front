@@ -8,6 +8,7 @@
 // match the expected interface, even if the JSON is valid.
 
 export interface SearchExpedientesResponse {
+    UltimoMovimiento: string;
     id:                  number;
     nombre:              string;
     fecha:               string;
