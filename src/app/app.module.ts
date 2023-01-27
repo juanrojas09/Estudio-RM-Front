@@ -8,13 +8,17 @@ import { HomePageModule } from './Home/homepage.module';
 import { LoginComponent } from './Login/login/login.component';
 import { SideBarComponent } from './Home/table/side-bar.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FiltroPipe } from './Expedientes/pipes/filtro.pipe';
+import { FormGroup, FormControl } from '@angular/forms';
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    
+   
         
     
     
@@ -24,7 +28,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     HomePageModule,
     HttpClientModule,
-    BrowserAnimationsModule
+
+   
 
     
     

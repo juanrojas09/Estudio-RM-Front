@@ -12,18 +12,24 @@ import {MatTableDataSource} from '@angular/material/table';
 import {MatSort} from '@angular/material/sort';
 import {MatSortModule} from '@angular/material/sort';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { FiltroPipe } from '../Expedientes/pipes/filtro.pipe';
+import { ModalComponent } from './modal/modal.component';
+
 
 
 @NgModule({
     declarations: [
     HomePageComponent,
-    SideBarComponent
+    SideBarComponent,
+    FiltroPipe,
+    ModalComponent,
     ],
     providers: [],
     bootstrap: [HomePageModule,SideBarComponent],
     exports: [
         HomePageComponent,
-        SideBarComponent
+        SideBarComponent,
+        
         
     ],
     imports: [
@@ -35,7 +41,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
         MatTableModule,
         MatPaginatorModule,
         MatSortModule,
-        MatFormFieldModule,
+        MatFormFieldModule
+        
         
        
         

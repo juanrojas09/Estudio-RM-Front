@@ -7,8 +7,19 @@
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 
+export interface FetchAllExpedientesResponse{
+    count:    number;
+    next:     null;
+    previous: null;
+    results:  SmallExp[];
+}
+
+export interface SmallExp {
+    
+    url:  string;
+}
 export interface SearchExpedientesResponse {
-    UltimoMovimiento: string;
+   
     id:                  number;
     nombre:              string;
     fecha:               string;

@@ -1,122 +1,272 @@
+  <div class="contenedor" style=" display:inline-flex;position:absolute;right: 0">
+    <div class="btn-group" >
+      <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Registros por pagina
+      </button>
+      <ul class="dropdown-menu " style="margin-left: 10px;  ">
+        
+        <li><a #pagina  class="dropdown-item" value="1 " (click)="setIntervalo(1)  "   >1</a></li>
+        <li><a #pagina  class="dropdown-item" value="5  " (click)="setIntervalo(5)"  >5</a></li>
+        <li><a #pagina  class="dropdown-item" value="10" (click)="setIntervalo(10)" >10</a></li>
+        <li><a #pagina  class="dropdown-item" value="50 "  (click)="setIntervalo(50)">50</a></li>
+        <li><a #pagina  class="dropdown-item" value="50 " (click)="setIntervalo(100)"  >100</a></li>
+
+       
+      </ul>
+    </div>
+
+   
+
+
+</div>
+
+<div class="contenedor1" >
+  <input type="text"
+  class="form-control mb-2"
+  placeholder="Buscar por nombre"
+  #txtSearch
+  (keyup)="onSearchPokemon( txtSearch.value )"  style="width:300px;margin-top: 5px; display: inline-flex;position:absolute;top: 0;right:  0;"/>
+</div>
+
+
+  <div class="contenedor-bt" style="display: inline-flex;">
+
+    <button class="btn btn-primary"  style="margin-right: 10px;"
+    (click)="prevPage()">
+      Anteriores
+    </button>
+    
+    <button class="btn btn-primary"
+    (click)="nextPage()"
+    [disabled]="(resultados | filtro:page:search:size).length === 0">
+      Siguientes
+    </button>
+  </div>
 
  
+
 <table id="expedientes" class="table table-dark animate__animated animate__fadeIn  "  >
-    <thead>
-        <tr>
-                            <th scope="col">ID</th>
-							   <th scope="col">Nombre</th>
-							<th scope="col">Fecha</th>
-							<th scope="col">UltimoMov</th>
-							<th scope="col">N_Liquidacion</th>
-							<th scope="col">Objeto</th>
-							<th scope="col">InicioDemanda</th>
-							<th scope="col">Monteo_N_Juicio</th>
-							<th scope="col">Juzgado</th>
-							<th scope="col">Notif_DDA</th>
-							<th scope="col">Sentencia_Ejecucion</th>
-							<th scope="col">Liquidacion</th>
-							<th scope="col">Embargo</th>
-							<th scope="col">Autorizacion_Desig</th>
-							<th scope="col">Propuesta</th>
-							<th scope="col">Tramite</th>
-							<th scope="col">Domicilio</th>
-							<th scope="col">Cuit_Dni</th>
-							<th scope="col">Matricula</th>
-							<th scope="col">Telefono</th>
-							<th scope="col">AccionesCobro</th>
-							<th scope="col">Eliminar</th>
-							<th scope="col">Editar</th>
-		
-
-							
-          </tr>
-    </thead>
-	
-
-    <tbody *ngFor="let item of resultados " >
-		<tr ><td>
-			{{item.id}}
-		</td>
-		<td>
-			{{item.nombre}}
-		</td>
-		<td>
-			{{item.fecha}}
-		</td>
-		<td>
-			{{item.ultimoMovimiento}}
-		</td>
-		<td>
-			{{item.n_liqudacion}}
-		</td>
-		<td>
-			{{item.objeto}}
-		</td>
-		<td>
-			{{item.inicioDemanda}}
-		</td>
-		<td>
-			{{item.monteo_N_Juicio}}
-		</td>
-		<td>
-			{{item.juzgado}}
-		</td>
-		<td>
-			{{item.notif_DDA}}
-		</td>
-		<td>
-			{{item.sentencia_Ejecucion}}
-		</td>
-		<td>
-			{{item.liquidacion}}
-		</td>
-		<td>
-			{{item.embargo}}
-		</td>
-		<td>
-			{{item.autorizacion_Desig}}
-		</td>
-		<td>
-			{{item.propuesta}}
-		</td>
-		<td>
-			{{item.tramite}}
-		</td>
-		<td>
-			{{item.domicilio}}
-		</td>
-		<td>
-			{{item.cuit_Dni}}
-		</td>
-		<td>
-			{{item.matricula}}
-		</td>
-		<td>
-			{{item.telefono}}
-		</td>
-		<td>
-			{{item.accionesCobro}}
-		</td>
-		<td>
-			<a href="#" onclick="Eliminar()" style="width: auto;" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>
-		</td>
-		<td>
-			<a href="#" onclick="Editar()" style="width: auto;" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-		</td>
-			
-		
-     
-    </tbody>
-	
-  </table>
-  <mat-paginator [length]="resultados.length" [pageSize]="5" [pageSizeOptions]="[2, 10, 25, 100]"></mat-paginator>
- 
-
+  
+  <thead>
+    
+      <tr>
+               <th scope="col">ID</th>
+               <th scope="col">Nombre</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">UltimoMov</th>
+            <th scope="col">N_Liquidacion</th>
+            <th scope="col">Objeto</th>
+            <th scope="col">InicioDemanda</th>
+            <th scope="col">Monteo_N_Juicio</th>
+            <th scope="col">Juzgado</th>
+            <th scope="col">Notif_DDA</th>
+            <th scope="col">Sentencia_Ejecucion</th>
+            <th scope="col">Liquidacion</th>
+            <th scope="col">Embargo</th>
+            <th scope="col">Autorizacion_Desig</th>
+            <th scope="col">Propuesta</th>
+            <th scope="col">Tramite</th>
+            <th scope="col">Domicilio</th>
+            <th scope="col">Cuit_Dni</th>
+            <th scope="col">Matricula</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">AccionesCobro</th>
+            <th scope="col">Eliminar</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Agregar</th>
   
 
+            
+        </tr>
+  </thead>
+
+
+  <tbody *ngFor="let item of resultados | filtro:page:search:size" >
+  <tr >
+ 
+    <td>
+    {{item.id}}
+  </td>
+  <td>
+    {{item.nombre}}
+  </td>
+  <td>
+    {{item.fecha}}
+  </td>
+  <td>
+    {{item.ultimoMovimiento}}
+  </td>
+  <td>
+    {{item.n_liqudacion}}
+  </td>
+  <td>
+    {{item.objeto}}
+  </td>
+  <td>
+    {{item.inicioDemanda}}
+  </td>
+  <td>
+    {{item.monteo_N_Juicio}}
+  </td>
+  <td>
+    {{item.juzgado}}
+  </td>
+  <td>
+    {{item.notif_DDA}}
+  </td>
+  <td>
+    {{item.sentencia_Ejecucion}}
+  </td>
+  <td>
+    {{item.liquidacion}}
+  </td>
+  <td>
+    {{item.embargo}}
+  </td>
+  <td>
+    {{item.autorizacion_Desig}}
+  </td>
+  <td>
+    {{item.propuesta}}
+  </td>
+  <td>
+    {{item.tramite}}
+  </td>
+  <td>
+    {{item.domicilio}}
+  </td>
+  <td>
+    {{item.cuit_Dni}}
+  </td>
+  <td>
+    {{item.matricula}}s
+  </td>
+  <td>
+    {{item.telefono}}
+  </td>
+  <td>
+    {{item.accionesCobro}}
+  </td>
+  <td>
+    <a href="#" (click)="EliminarExpediente(item.id)"    style="width: auto;" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>
+  </td>
+  <td>
+    <a href="#"   (click)="GetId(item.id)" style="width: auto;" class="btn btn-warning btn-sm"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"><i class="fas fa-edit"></i></a>
+  </td>
+  <td>
+    <a href="#"   style="width: auto;" class="btn btn-success btn-sm"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"><i class="fas fa-add"></i></a>
+  </td>
+  
+  
+  
+  </tbody>
+ 
+ 
+</table>
+<div  class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar registro  </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form formGroup="regForm">
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Nombre:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">fecha:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">ultimoMovimiento:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">n_liqudacion:</label>
+            <input type="number" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">objeto:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">inicioDemanda:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">monteo_N_Juicio:</label>
+            <input type="number" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">juzgado:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">notif_DDA:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">sentencia_Ejecucion:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">liquidacion:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">autorizacion_Desig:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">propuesta:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">tramite:</label>
+            <input type="number" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">domicilio:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">cuit_Dni:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">matricula:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">telefono:</label>
+            <input type="number" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">accionesCobro:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+ 
+          
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="EditarReg()">Confirmar Edicion</button>
+      </div>
+    </div>
+  </div>
+</div>
+<p style="color:black;   ">Pagina {{this.page}} </p>
+
+
+
   
  
-
+<!--
  
 <table mat-table [dataSource]="resultados" class="mat-elevation-z8">
 	
@@ -130,6 +280,7 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let emprow; columns: displayedColumns"></tr>
 </table>
-<mat-paginator [length]="resultados.length" [pageSize]="2" [pageSizeOptions]="[2, 10, 25, 100]" >
+<mat-paginator #paginator [length]="resultados.length" [pageSize]="1" [pageSizeOptions]="[1, 5, 25, 100]" showFirstLastButtons >
 
 </mat-paginator>
+-->

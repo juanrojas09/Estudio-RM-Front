@@ -10,6 +10,7 @@ table{
    
 
 }
+
 /*mediaquery si el zoom del navegador es 100% ponerlo en 90*/
 @media screen and (max-width: 1240px) {
     table{
