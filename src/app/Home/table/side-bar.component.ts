@@ -69,7 +69,7 @@ export class SideBarComponent  {
   public size:number=1;
 
   public id:number=0;
- 
+  public url='https://localhost:7019/ExpedientesCosquin/ExpedientesCosquin'
 
 
 
@@ -100,7 +100,7 @@ get resultados(){
 
 
 
-constructor(private service:HomeService,private modalService: NgbModal) {
+constructor(private service:HomeService,private modalService: NgbModal,private http:HttpClient) {
   this.service=service;
  // Ventana modal
 
@@ -135,12 +135,40 @@ constructor(private service:HomeService,private modalService: NgbModal) {
   }
 
   regForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
+    id:new FormControl(this.id),
+    nombre: new FormControl(''),
+    fecha: new FormControl(''),
+    ultimoMovimiento: new FormControl(''),
+    n_liqudacion: new FormControl(),
+    objeto: new FormControl(''),
+    inicioDemanda: new FormControl(''),
+    monteo_N_Juicio: new FormControl(),
+    juzgado: new FormControl(''),
+    notif_DDA: new FormControl(''),
+    sentencia_Ejecucion: new FormControl(''),
+    liquidacion: new FormControl(''),
+    embargo: new FormControl(''),
+    autorizacion_Desig: new FormControl(''),
+    propuesta: new FormControl(''),
+    tramite: new FormControl(),
+    domicilio: new FormControl(''),
+    cuit_Dni: new FormControl(''),
+    matricula: new FormControl(''),
+    telefono: new FormControl(),
+    accionesCobro: new FormControl(''),
+
+    
   });
   EditarReg(){
+    
     var id= this.GetId(this.id);
-    this.service.EditarExpediente(id);
+   
+    console.warn(this.regForm.value);
+    this.http.put<SearchExpedientesResponse>(`${this.url}/update/${id}`,this.regForm.value).subscribe((resp)=>{
+   
+      this.service.TraerDatos();
+      console.log('editado',resp);
+    })
     alert('Registro editado');
   }
 

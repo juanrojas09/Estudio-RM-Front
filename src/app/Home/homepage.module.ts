@@ -14,6 +14,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FiltroPipe } from '../Expedientes/pipes/filtro.pipe';
 import { ModalComponent } from './modal/modal.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -41,7 +42,9 @@ import { ModalComponent } from './modal/modal.component';
         MatTableModule,
         MatPaginatorModule,
         MatSortModule,
-        MatFormFieldModule
+        MatFormFieldModule,
+        FormsModule,
+        ReactiveFormsModule,
         
         
        

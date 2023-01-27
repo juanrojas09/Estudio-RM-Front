@@ -171,82 +171,90 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form formGroup="regForm">
+        <form [formGroup]="regForm" (ngSubmit)="EditarReg()">
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label"  >En el campo id ingresar el siguiente: "{{id}}"</label>
+            <input type="number" class="form-control" id="recipient-name"  value="{{id}}" formControlName="id">
+          </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Nombre:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="recipient-name" formControlName="nombre">
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">fecha:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="recipient-name" formControlName="fecha">
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">ultimoMovimiento:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="recipient-name" formControlName="ultimoMovimiento">
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">n_liqudacion:</label>
-            <input type="number" class="form-control" id="recipient-name">
+            <input type="number" class="form-control" id="recipient-name" formControlName="n_liqudacion">
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">objeto:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="recipient-name" formControlName="objeto">
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">inicioDemanda:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="recipient-name" formControlName="inicioDemanda">
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">monteo_N_Juicio:</label>
-            <input type="number" class="form-control" id="recipient-name">
+            <input type="number" class="form-control" id="recipient-name" formControlName="monteo_N_Juicio">
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">juzgado:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="recipient-name" formControlName="juzgado">
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">notif_DDA:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="recipient-name" formControlName="notif_DDA">
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">sentencia_Ejecucion:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="recipient-name" formControlName="sentencia_Ejecucion">
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">liquidacion:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="recipient-name" formControlName="liquidacion">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">embargo:</label>
+            <input type="text" class="form-control" id="recipient-name" formControlName="embargo">
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">autorizacion_Desig:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="recipient-name" formControlName="autorizacion_Desig">
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">propuesta:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="recipient-name" formControlName="propuesta">
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">tramite:</label>
-            <input type="number" class="form-control" id="recipient-name">
+            <input type="number" class="form-control" id="recipient-name" formControlName="tramite">
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">domicilio:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="recipient-name" formControlName="domicilio">
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">cuit_Dni:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="recipient-name" formControlName="cuit_Dni">
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">matricula:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="recipient-name" formControlName="matricula">
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">telefono:</label>
-            <input type="number" class="form-control" id="recipient-name">
+            <input type="number" class="form-control" id="recipient-name" formControlName="telefono">
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">accionesCobro:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="recipient-name" formControlName="accionesCobro">
           </div>
  
           

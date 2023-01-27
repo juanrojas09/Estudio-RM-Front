@@ -45,6 +45,7 @@ EliminarExpediente(id:number){
 
 EditarExpediente(id:number){
 console.log('id',id);
+
   const body={
     
     id:id,               

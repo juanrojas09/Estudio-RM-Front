@@ -11,7 +11,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FiltroPipe } from './Expedientes/pipes/filtro.pipe';
 import { FormGroup, FormControl } from '@angular/forms';
 
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
