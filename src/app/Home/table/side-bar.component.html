@@ -28,6 +28,14 @@
   (keyup)="onSearchPokemon( txtSearch.value )"  style="width:300px;margin-top: 5px; display: inline-flex;position:absolute;top: 0;right:  0;"/>
 </div>
 
+<div class="contenedor1" >
+  <input type="text"
+  class="form-control mb-2"
+  placeholder="Buscar por N_Liquidacion"
+  #nliqu
+  (keyup)="onSearchNLiquidacion( nliqu.value )"  style="width:300px;margin-left: 1050px; ;margin-top: 5px; display: inline-flex;position:absolute;top: 0;"/>
+</div>
+
 
   <div class="contenedor-bt" style="display: inline-flex;">
 
@@ -38,7 +46,7 @@
     
     <button class="btn btn-primary"
     (click)="nextPage()"
-    [disabled]="(resultados | filtro:page:search:size).length === 0">
+    [disabled]="(resultados | filtro:page:search:size:nliq).length === 0">
       Siguientes
     </button>
   </div>
@@ -81,7 +89,7 @@
   </thead>
 
 
-  <tbody *ngFor="let item of resultados | filtro:page:search:size" >
+  <tbody *ngFor="let item of resultados | filtro:page:search:size:nliq" >
   <tr >
  
     <td>

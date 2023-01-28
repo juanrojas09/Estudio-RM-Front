@@ -46,31 +46,7 @@ EliminarExpediente(id:number){
 EditarExpediente(id:number){
 console.log('id',id);
 
-  const body={
-    
-    id:id,               
-    nombre: "juan",              
-    fecha:"s" ,              
-    ultimoMovimiento: "s",    
-    n_liqudacion: 1     ,   
-    objeto:      "s"       ,  
-    inicioDemanda: "s"     , 
-    monteo_N_Juicio: 1    ,
-    juzgado:          "s"   ,
-    notif_DDA:          "s" ,
-    sentencia_Ejecucion: "s",
-    liquidacion:        "s" ,
-    embargo:            "s" ,
-    autorizacion_Desig:  "s",
-    propuesta:           "s",
-    tramite:             0,
-    domicilio:           "2",
-    cuit_Dni:            "2",
-    matricula:           "s",
-    telefono:            2,
-    accionesCobro:      "s"
- }
-  this.http.put<SearchExpedientesResponse>(`${this.url}/update/${id}`,body).subscribe((resp)=>{
+  this.http.put<SearchExpedientesResponse>(`${this.url}/update/${id}`,id).subscribe((resp)=>{
    
     this.TraerDatos();
     console.log('editado',resp);

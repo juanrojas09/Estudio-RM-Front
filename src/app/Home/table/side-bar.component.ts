@@ -67,6 +67,7 @@ export class SideBarComponent  {
   public page: number = 0;
   public search: string = '';
   public size:number=1;
+  public nliq:string='';
 
   public id:number=0;
   public url='https://localhost:7019/ExpedientesCosquin/ExpedientesCosquin'
@@ -134,6 +135,7 @@ constructor(private service:HomeService,private modalService: NgbModal,private h
    return id;
   }
 
+ 
   regForm = new FormGroup({
     id:new FormControl(this.id),
     nombre: new FormControl(''),
@@ -163,7 +165,7 @@ constructor(private service:HomeService,private modalService: NgbModal,private h
     
     var id= this.GetId(this.id);
    
-    console.warn(this.regForm.value);
+    console.log(this.regForm.value);
     this.http.put<SearchExpedientesResponse>(`${this.url}/update/${id}`,this.regForm.value).subscribe((resp)=>{
    
       this.service.TraerDatos();
@@ -220,7 +222,11 @@ onSearchPokemon( search: string ) {
 
 //logica de abrir y cerrar modal
 
-
+onSearchNLiquidacion(nliq:string){
+  console.log('nliq',nliq);
+  this.page=0;
+  this.nliq=nliq;
+}
 
 
 }
